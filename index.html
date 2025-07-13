@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Malla Enfermería UOH</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f8f9fa; }
+        h1, h2 { color: #006699; }
+        .semester { margin-bottom: 1.5rem; }
+        .subject { 
+            background: white; 
+            border: 1px solid #ccc; 
+            border-radius: 8px;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .subject:hover { background: #e6f2ff; }
+        #infoBox {
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px solid #006699;
+            border-radius: 8px;
+            background: #ffffff;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>🩺 Malla Interactiva Enfermería UOH</h1>
+    <!-- CONTENIDO OMITIDO POR BREVEDAD EN ESTE BLOQUE -->
+    <div class="semester">
+        <h2>Ejemplo</h2>
+        <div class="subject" onclick="showInfo('Ejemplo de asignatura', 7, 'Prerrequisito', 1)">Ejemplo de asignatura</div>
+    </div>
+    <div id="infoBox"></div>
+    <script>
+        function showInfo(nombre, sct, prereq, semestre) {
+            const infoBox = document.getElementById('infoBox');
+            infoBox.innerHTML = `
+                <h3>📌 ${nombre}</h3>
+                <p><strong>Semestre:</strong> ${semestre}</p>
+                <p><strong>Créditos SCT:</strong> ${sct}</p>
+                <p><strong>Prerrequisitos:</strong> ${prereq}</p>
+            `;
+            infoBox.style.display = "block";
+            window.scrollTo({top: infoBox.offsetTop - 20, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
